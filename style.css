@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+.main, .extra-area, .extra-area-block, .cell, .end-game-window, .score-blocks, .score-blocks, .menu-button, .menu-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F9F8EE;
+    /* background-color: #f7f7f7; */
+    /* position: relative; */
+}
+
+
+.end-game-window {
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    /* background-color: #F9F8EE; */
+    color: #766E64;
+    flex-direction: column;
+    z-index: 99;
+    transition: all .6s ease-in-out;
+    transition-delay: .8s;
+    box-shadow: 0 0 120px 0 rgb(0 0 0 / 10%);
+}
+.end-game-bg {    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #F9F8EE;
+    opacity: .6;
+    z-index: -1;
+    animation: 1s ease 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes opacityOn {
+    100% {opacity: 1;}
+}
+
+.end-game-window h1 {
+    margin-bottom: 30px;
+}
+
+
+.end-game-text {
+    font-size: 70px;
+}
+.end-game-text-animation {
+    animation: 6s ease 3s infinite text-pulse;
+}
+@keyframes text-pulse{
+    0% {transform: scale(1)}
+    75% {transform: scale(1)}
+    80% {transform: scale(0.9)}
+    85% {transform: scale(1)}
+    95% {transform: scale(0.88)}
+    100% {transform: scale(1)}
+}
+
+.text-pulse-onclick {
+    animation: 1s ease text-pulse-onclick;
+}
+@keyframes text-pulse-onclick{
+    0% {transform: scale(1)}
+    20% {transform: scale(0.9)}
+    40% {transform: scale(1)}
+    100% {transform: scale(1)}
+}
+
+
+.end-game-extra-text {
+    animation: 1s ease-in-out 6s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    margin-top: 2%;
+}
+@keyframes text-appearing {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.end-game-click-area {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 99;
+}
+
+
+
+
+.menu-window {
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #766E64;
+    color: #BBAD9F;
+    flex-direction: column;
+    z-index: 99;
+    transition: all .8s ease-in-out;
+    transition-delay: 0.1s;
+}
+.menu-window p {
+    font-size: 80px;
+    transition: all .2s ease;
+    margin: 10px 0;
+}
+.menu-window p:hover {
+    cursor: pointer;
+    transform: scale(0.96);
+    color: #F9F8EE;
+}
+
+.text_menu {
+    position: absolute;
+    top: 5%;
+    font-size: 90px;
+    /* color: #F9F8EE; */
+}
+
+
+
+
+.game-table-shell {
+    width: 500px;
+    height: 630px;
+    border-radius: 25px;
+    /* box-shadow: 0 20px 60px 0 rgb(0 0 0 / 20%); */
+    /* border: 1px solid #dddddd; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.extra-area {
+    width: 90%;
+    height: 110px;
+    border-radius: inherit;
+    justify-content: flex-end;
+    padding: 0 5%;
+    position: relative;
+}
+.extra-area-block {
+    flex-direction: column;
+    width: 110px;
+    height: inherit;
+    background-color: #BBAD9F;
+    border-radius: inherit;
+    transition: all .1s ease;
+}
+.extra-area-block:hover {
+    transform: scale(0.94);
+    cursor: default;
+}
+
+
+.menu-button-shell {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 90px;
+    height: 70px;    
+    padding: 10px 0 100px 0;
+    transition: all .2s ease;
+}
+.menu-button {
+    position: relative;
+    width: inherit;
+    height: inherit; 
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.line {
+    height: 6px;
+    width: 55%;
+    background-color: #fff;
+    border-radius: 60px;
+}
+.mid-line {
+    width: 45%;
+}
+.menu-button-click-area {
+    position: absolute;
+    border-radius: inherit;
+    left: 0;
+    top: -10px;
+    width: inherit;
+    height: 180px;
+}
+
+.menu-button-shell:hover {
+    transform: translateY(-10%);
+    cursor: pointer;
+}
+.menu-button-shell:active {
+    transform: translateY(-5%) scale(0.92);
+}
+
+
+
+.score-blocks {
+    height: 100%;
+    width: 52%;
+    justify-content: space-between;
+    border-radius: inherit;
+}
+.extra-area-block p {
+    margin-bottom: 5%;
+    color: #e4e3dc;
+}
+.score {
+    font-size: 32px;
+    color: #fff;
+}
+
+
+
+
+
+.game-table {
+    height: 480px;
+    background-color: #BBAD9F;
+    border-radius: inherit;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    box-shadow: 0 20px 40px 0 rgb(0 0 0 / 15%);
+
+    position: relative;
+    z-index: 3;
+}
+
+
+.cell {
+    background-color: #CCC0B4;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #766E64;
+}
+
+.cell-filling {
+    animation: .3s ease cell-filling;
+}
+@keyframes cell-filling {
+    70% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+.num_2-new {
+    background-color: #EEE4D9;
+    transform: scale(0.1);
+    transition: all 0.2s ease;
+}
+.cell-append {
+    transform: scale(0);
+    animation: .2s ease cell-append;
+    animation-fill-mode: forwards;
+}
+@keyframes cell-append {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.num_2 {
+    background-color: #EEE4D9;
+}
+.num_4 {
+    background-color: #EDDFC7;
+}
+.num_8 {
+    background-color: #F1B178;
+    color: #fff;
+}
+.num_16 {
+    background-color: #EC8D53;
+    color: #fff;
+}
+.num_32 {
+    background-color: #F57C5E;
+    color: #fff;
+}
+.num_64 {
+    background-color: #EB5936;
+    color: #fff;
+}
+.num_128 {
+    background-color: #F3D76B;
+    color: #fff;
+    font-size: 45px;
+}
+.num_256 {
+    background-color: #F0D04A;
+    color: #fff;
+    font-size: 45px;
+}
+.num_512 {
+    background-color: #E4C02A;
+    color: #fff;
+    font-size: 40px;
+}
+.num_1024 {
+    background-color: #D6B427;
+    color: #fff;
+    font-size: 35px;
+}
+.num_2048 {
+    background-color: #F94E37;
+    color: #fff;
+    font-size: 30px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>2048</title>
+</head>
+<body>
+    <div class="main">
+        <div class="game-table-shell">
+            <div class="extra-area">
+                <div class="extra-area-block menu-button-shell">
+                    <div class="menu-button">
+                        <div class="line"></div>
+                        <div class="line mid-line"></div>
+                        <div class="line"></div>
+                        <div class="menu-button-click-area"></div>
+                    </div>
+                </div>
+
+
+                <div class="score-blocks">
+                    <div class="extra-area-block">
+                        <p>SCORE</p>
+                        <span class="current-score score">0</span>
+                    </div>
+                    <div class="extra-area-block">
+                        <p>BEST</p>
+                        <span class="best-score score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-table"></div> <!--important-->
+
+        </div>
+    </div>
+    
+    <div class="end-game-window">
+        <div class="end-game-bg"></div>
+        <h1 class="end-game-text game-result">Game Over</h1>
+        <p class="end-game-text">Score: <span class="end-game-text end-game-score">2345</span></p>
+        <p class="end-game-extra-text">click to continue...</p>
+        <div class="end-game-click-area"></div>
+    </div>
+
+    <div class="menu-window">
+        <h1 class="text_menu">MENU</h1>
+        <p class="menu-continue">continue</p>
+        <p class="menu-restart">restart</p>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
