@@ -45,6 +45,8 @@ body {
     background-color: #F9F8EE;
     opacity: .6;
     z-index: -1;
+    transition: all .3s ease;
+    transition-delay: .2s;
     animation: 1s ease 3s;
     animation-fill-mode: forwards;
 }
@@ -53,12 +55,12 @@ body {
 }
 
 .end-game-window h1 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 
 .end-game-text {
-    font-size: 70px;
+    font-size: 80px;
 }
 .end-game-text-animation {
     animation: 6s ease 3s infinite text-pulse;
@@ -88,6 +90,7 @@ body {
     opacity: 0;
     animation-fill-mode: forwards;
     margin-top: 2%;
+    font-size: 16px;
 }
 @keyframes text-appearing {
     0% {opacity: 0;}
@@ -225,6 +228,7 @@ body {
 .extra-area-block p {
     margin-bottom: 5%;
     color: #e4e3dc;
+    font-size: 16px;
 }
 .score {
     font-size: 32px;
@@ -250,21 +254,26 @@ body {
 }
 
 
-.cell {
+.empty-cell {
     background-color: #CCC0B4;
     border-radius: 20px;
     margin: 5px;
+}
+.cell {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
     font-size: 50px;
     font-weight: bold;
     color: #766E64;
 }
 
 .cell-filling {
-    animation: .3s ease cell-filling;
+    animation: .35s ease cell-filling;
 }
 @keyframes cell-filling {
     70% {
-        transform: scale(1.08);
+        transform: scale(1.12);
     }
     100% {
         transform: scale(1);
@@ -281,7 +290,7 @@ body {
 }
 .cell-append {
     transform: scale(0);
-    animation: .2s ease cell-append;
+    animation: .3s ease .1s cell-append;
     animation-fill-mode: forwards;
 }
 @keyframes cell-append {
@@ -343,4 +352,377 @@ body {
     background-color: #F94E37;
     color: #fff;
     font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+/* ADAPTIVE */
+@media (min-width: 2200px) {
+    .end-game-text, .menu-window p {
+        font-size: 110px;
+    }
+    .end-game-extra-text {
+        font-size: 22px;
+    }
+    .text_menu {
+        font-size: 140px;
+    }
+
+    .game-table-shell {
+        width: 650px;
+        height: 840px;
+    }
+    .extra-area {
+        height: 150px;
+    }
+    .extra-area-block {
+        width: 150px;
+        border-radius: 35px;
+    }
+    .menu-button-shell {
+        width: 110px;
+        height: 90px;
+        top: 50px;
+        padding: 10px 0 300px 0;
+    }
+    .line {
+        height: 7px;
+    }
+
+
+    .score-blocks {
+        width: 55%;
+    }
+    .extra-area-block p {
+        font-size: 22px;
+    }
+    .score {
+        font-size: 42px;
+    }
+
+
+    .game-table {
+        height: 630px;
+        border-radius: 40px;
+    }
+    .empty-cell {
+        border-radius: 35px;
+        margin: 6px;
+    }
+    .cell {
+        font-size: 70px;
+    }
+
+
+    .num_128, .num_256 {
+        font-size: 65px;
+    }
+    .num_512 {
+        font-size: 60px;
+    }
+    .num_1024 {
+        font-size: 48px;
+    }
+    .num_2048 {
+        font-size: 45px;
+    }
+}
+
+
+@media (max-width: 1250px) {
+    .end-game-text, .menu-window p {
+        font-size: 70px;
+    }
+    .end-game-extra-text {
+        font-size: 15px;
+    }
+    .text_menu {
+        font-size: 80px;
+    }
+
+    .game-table-shell {
+        width: 450px;
+        height: 570px;
+    }
+    .extra-area {
+        height: 100px;
+    }
+    .extra-area-block {
+        width: 100px;
+    }
+    .menu-button-shell {
+        width: 85px;
+        height: 70px;
+        top: 25px;
+    }
+
+    .extra-area-block p {
+        font-size: 15px;
+    }
+    .score {
+        font-size: 28px;
+    }
+
+
+    .game-table {
+        height: 430px;
+    }
+    .cell {
+        font-size: 45px;
+    }
+
+
+    .num_128, .num_256 {
+        font-size: 40px;
+    }
+    .num_512 {
+        font-size: 35px;
+    }
+    .num_1024 {
+        font-size: 30px;
+    }
+    .num_2048 {
+        font-size: 25px;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .end-game-text, .menu-window p {
+        font-size: 60px;
+    }
+    .end-game-extra-text {
+        font-size: 14px;
+        margin-top: 3%;
+    }
+    .text_menu {
+        font-size: 70px;
+    }
+
+    .game-table-shell {
+        width: 400px;
+        height: 510px;
+    }
+    .extra-area {
+        height: 95px;
+    }
+    .extra-area-block {
+        width: 95px;
+    }
+    .menu-button-shell {
+        width: 75px;
+        height: 60px;
+        top: 25px;
+    }
+    .line {
+        height: 5px;
+    }
+
+    .score-blocks {
+        width: 55%;
+    }
+    .extra-area-block p {
+        font-size: 14px;
+    }
+    .score {
+        font-size: 26px;
+    }
+
+
+    .game-table {
+        height: 380px;
+    }
+    .cell {
+        font-size: 40px;
+    }
+
+    .num_128, .num_256 {
+        font-size: 35px;
+    }
+    .num_512 {
+        font-size: 30px;
+    }
+    .num_1024 {
+        font-size: 25px;
+    }
+    .num_2048 {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .end-game-text, .menu-window p {
+        font-size: 50px;
+    }
+    .end-game-extra-text {
+        margin-top: 4%;
+        font-size: 13px;
+    }
+    .text_menu {
+        font-size: 60px;
+    }
+
+    .game-table-shell {
+        width: 350px;
+        height: 460px;
+    }
+    .extra-area {
+        height: 90px;
+    }
+    .extra-area-block {
+        width: 90px;
+    }
+    .menu-button-shell {
+        width: 70px;
+        height: 55px;
+        top: 30px;
+        left: 20px;
+    }
+
+    .score-blocks {
+        width: 60%;
+    }
+    .extra-area-block p {
+        font-size: 13px;
+    }
+    .score {
+        font-size: 22px;
+    }
+
+
+    .game-table {
+        height: 330px;
+    }
+    .empty-cell {
+        border-radius: 17px;
+        margin: 4px;
+    }
+    .cell {
+        font-size: 32px;
+    }
+    
+
+    .num_128, .num_256 {
+        font-size: 30px;
+    }
+    .num_512 {
+        font-size: 25px;
+    }
+    .num_1024 {
+        font-size: 20px;
+    }
+    .num_2048 {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .end-game-text, .menu-window p {
+        font-size: 40px;
+    }
+    .end-game-extra-text {
+        margin-top: 5%;
+        font-size: 12px;
+    }
+    .text_menu {
+        font-size: 50px;
+    }
+
+    .game-table-shell {
+        width: 294px;
+        height: 400px;
+    }
+    .extra-area {
+        height: 80px;
+        width: 94%;
+        padding: 0 3%;
+    }
+    .extra-area-block {
+        width: 80px;
+        border-radius: 20px;
+    }
+    .menu-button-shell {
+        border-radius: 17px;
+        width: 65px;
+        height: 50px;
+        top: 30px;
+        left: 0px;
+    }
+    .line {
+        height: 4px;
+    }
+
+
+    .score-blocks {
+        width: 60%;
+    }
+    .extra-area-block p {
+        font-size: 12px;
+    }
+    .score {
+        font-size: 20px;
+    }
+
+
+    .game-table {
+        height: 280px;
+        border-radius: 22px;
+        padding: 7px;
+    }
+    .empty-cell {
+        border-radius: 13px;
+    }
+    .cell {
+        font-size: 30px;
+    }
+
+    .num_128, .num_256,.num_512 {
+        font-size: 25px;
+    }
+    .num_1024 {
+        font-size: 20px;
+    }
+    .num_2048 {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 350px) {
+    .end-game-extra-text {
+        margin-top: 6%;
+    }
+
+    .game-table-shell {
+        width: 284px;
+        height: 380px;
+    }
+    .extra-area {
+        height: 75px;
+        width: 94%;
+    }
+    .extra-area-block {
+        width: 75px;
+    }
+    .menu-button-shell {
+        width: 55px;
+        height: 40px;
+        top: 35px;
+    }
+
+    .game-table {
+        height: 270px;
+    }
+    .empty-cell {
+        margin: 3px;
+    }
 }
