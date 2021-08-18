@@ -25,6 +25,7 @@ body {
 
 
 .end-game-window {
+    display: none;
     position: relative;
     left: 0;
     top: 0;
@@ -36,7 +37,6 @@ body {
     z-index: 99;
     transition: all .6s ease-in-out;
     transition-delay: .8s;
-    box-shadow: 0 0 120px 0 rgb(0 0 0 / 10%);
 }
 .end-game-bg {    
     width: 100%;
@@ -108,6 +108,7 @@ body {
 
 
 .menu-window {
+    display: none;
     position: relative;
     left: 0;
     top: 0;
@@ -117,7 +118,7 @@ body {
     color: #BBAD9F;
     flex-direction: column;
     z-index: 99;
-    transition: all .8s ease-in-out;
+    transition: all .5s ease;
     transition-delay: 0.1s;
 }
 .menu-window p {
@@ -603,24 +604,20 @@ body {
     }
     .empty-cell {
         border-radius: 17px;
-        margin: 4px;
+        margin: 3px;
     }
     .cell {
-        font-size: 32px;
+        font-size: 38px;
     }
-    
 
-    .num_128, .num_256 {
-        font-size: 30px;
-    }
-    .num_512 {
-        font-size: 25px;
+    .num_128, .num_256,.num_512 {
+        font-size: 34px;
     }
     .num_1024 {
-        font-size: 20px;
+        font-size: 25px;
     }
     .num_2048 {
-        font-size: 20px;
+        font-size: 23px;
     }
 }
 
@@ -638,8 +635,8 @@ body {
     }
 
     .game-table-shell {
-        width: 294px;
-        height: 400px;
+        width: 334px;
+        height: 430px;
     }
     .extra-area {
         height: 80px;
@@ -652,10 +649,10 @@ body {
     }
     .menu-button-shell {
         border-radius: 17px;
-        width: 65px;
-        height: 50px;
+        width: 60px;
+        height: 45px;
         top: 30px;
-        left: 0px;
+        left: 25px;
     }
     .line {
         height: 4px;
@@ -663,7 +660,7 @@ body {
 
 
     .score-blocks {
-        width: 60%;
+        width: 54%;
     }
     .extra-area-block p {
         font-size: 12px;
@@ -674,30 +671,30 @@ body {
 
 
     .game-table {
-        height: 280px;
+        height: 320px;
         border-radius: 22px;
         padding: 7px;
     }
     .empty-cell {
-        border-radius: 13px;
+        border-radius: 16px;
     }
     .cell {
-        font-size: 30px;
+        font-size: 35px;
     }
 
     .num_128, .num_256,.num_512 {
-        font-size: 25px;
+        font-size: 30px;
     }
     .num_1024 {
-        font-size: 20px;
+        font-size: 22px;
     }
     .num_2048 {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
     .end-game-extra-text {
         margin-top: 6%;
     }
@@ -717,6 +714,11 @@ body {
         width: 55px;
         height: 40px;
         top: 35px;
+        left: 0;
+    }
+
+    .score-blocks {
+        width: 60%;
     }
 
     .game-table {
@@ -724,5 +726,18 @@ body {
     }
     .empty-cell {
         margin: 3px;
+    }
+    .cell {
+        font-size: 30px;
+    }
+
+    .num_128, .num_256,.num_512 {
+        font-size: 25px;
+    }
+    .num_1024 {
+        font-size: 18px;
+    }
+    .num_2048 {
+        font-size: 15px;
     }
 }

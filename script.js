@@ -14,6 +14,13 @@ function tableGenerationFunc() {
 
 
 // game start param
+const mainBlock = document.querySelector('.main');
+const endGameWindow = document.querySelector('.end-game-window');
+const menuWindow = document.querySelector('.menu-window');
+mainBlock.style.height = window.innerHeight + 'px';
+endGameWindow.style.height = window.innerHeight + 'px';
+menuWindow.style.height = window.innerHeight + 'px';
+
 const ls_currentRoundSave = localStorage.getItem('currentRoundSave');
 if (ls_currentRoundSave == null) tableGenerationFunc();
 else gameTable.innerHTML = ls_currentRoundSave;
@@ -67,7 +74,7 @@ if (ls_currentScore != null) {
 
 
 
-const victoryNum = 2048;
+const victoryNum = 4;
 let cellCombine = 0;
 let specialCellIndex = 0;
 
@@ -412,7 +419,6 @@ function listeningStopFunc() {
 
 
 // victory and defeat
-const endGameWindow = document.querySelector('.end-game-window');
 const endGameText = document.querySelectorAll('.end-game-text');
 const endGameBg = document.querySelector('.end-game-bg');
 function endGameFunc(gameResult) {
@@ -423,7 +429,8 @@ function endGameFunc(gameResult) {
 
     gameResultBlock.innerHTML = gameResult;
     endGameScore.innerHTML = score;
-    endGameWindow.style.transform = 'translateY(-100%)';
+    endGameWindow.style.display = 'flex';
+    setTimeout("endGameWindow.style.transform = 'translateY(-100%)'", 100);
     endGameText.forEach(text => text.classList.add('end-game-text-animation'));
     endGameExtraText.style.animationName = 'text-appearing';
     endGameBg.style.animationName = 'opacityOn';
@@ -496,7 +503,6 @@ function progressSaveFunc() {
 
 
 // menu
-const menuWindow = document.querySelector('.menu-window');
 const menuButtonShell = document.querySelector('.menu-button-shell');
 const continueBut = document.querySelector('.menu-continue');
 const restartBut = document.querySelector('.menu-restart');
@@ -507,7 +513,8 @@ menuButton.addEventListener('click', menuOpeningFunc);
 function menuOpeningFunc() {
     listeningStopFunc();
 
-    menuWindow.style.transform = 'translateY(-200%)';
+    menuWindow.style.display = 'flex';
+    setTimeout('menuWindow.style.transform = "translateY(-100%)"', 10);
 
     continueBut.addEventListener('click', continueButFunc);
     window.addEventListener('keyup', e => {
@@ -518,6 +525,7 @@ function menuOpeningFunc() {
 
 
 function continueButFunc() {
+    setTimeout("menuWindow.style.display = 'none'", 600);
     menuWindow.style.transform = 'translateY(0)';
     continueBut.removeEventListener('click', continueButFunc);
     restartBut.removeEventListener('click', restartButFunc);
