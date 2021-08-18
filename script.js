@@ -74,7 +74,7 @@ if (ls_currentScore != null) {
 
 
 
-const victoryNum = 4;
+const victoryNum = 2048;
 let cellCombine = 0;
 let specialCellIndex = 0;
 
@@ -436,6 +436,7 @@ function endGameFunc(gameResult) {
     endGameBg.style.animationName = 'opacityOn';
 
     endGameClickArea.addEventListener('click', endGameClickFunc);
+    endGameClickArea.addEventListener('touchend', endGameClickFunc);
     window.addEventListener('keyup', e => {
         if (e.key == 'Enter') endGameClickFunc();
     });
