@@ -8,7 +8,7 @@ body {
     overflow: hidden;
 }
 
-.main, .extra-area, .extra-area-block, .cell, .end-game-window, .score-blocks, .score-blocks, .menu-button, .menu-window {
+.main, .extra-area, .extra-area-block, .cell, .end-game-window, .score-blocks, .score-blocks, .menu-button, .menu-window, .menu-options, .size-cell, .target, .tip-shell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,37 @@ body {
     height: 100vh;
     background-color: #F9F8EE;
     /* background-color: #f7f7f7; */
-    /* position: relative; */
+}
+
+
+.tip-shell {
+    background-color: #E4C02A;
+    position: fixed;
+    padding: 14px 24px;
+    border-radius: 60px;
+    top: -100px;
+    box-shadow: 0 0 30px 0 rgb(227 192 42 / 20%);
+    z-index: 20;
+    animation: .7s ease 1s;
+    animation-fill-mode: forwards;
+    transition: all .6s ease-in-out;
+}
+@keyframes tip-appearing {
+    100% {transform: translateY(120px)}
+}
+@keyframes tip-hiding {
+    100% {transform: translateY(0)}
+}
+
+.tip, .final-score {
+    color: #fff;
+    font-size: 30px;
+}
+
+.tip-hiding {
+    transform: translateY(120px);
+    animation: .7s ease 1s tip-hiding;
+    animation-fill-mode: forwards;
 }
 
 
@@ -110,6 +140,7 @@ body {
 .menu-window {
     display: none;
     position: relative;
+    justify-content: space-evenly;
     left: 0;
     top: 0;
     height: 100vh;
@@ -120,6 +151,10 @@ body {
     z-index: 99;
     transition: all .5s ease;
     transition-delay: 0.1s;
+}
+
+.menu-options {
+    flex-direction: column;
 }
 .menu-window p {
     font-size: 80px;
@@ -133,11 +168,76 @@ body {
 }
 
 .text_menu {
-    position: absolute;
-    top: 5%;
     font-size: 90px;
-    /* color: #F9F8EE; */
+    color: #F9F8EE;
 }
+
+
+.game-table-size-change {
+    width: 300px;
+    height: 150px;
+    background-color: #BBAD9F;
+    border-radius: 100px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    animation: .5s ease;
+}
+@keyframes size-change-click{
+    0% {transform: scale(1)}
+    20% {transform: scale(0.9)}
+    40% {transform: scale(1)}
+    100% {transform: scale(1)}
+}
+
+
+.size-cell {
+    color: #F9F8EE;
+    font-size: 45px;
+    transition: all .2s ease;
+}
+.size-cell:hover {
+    cursor: pointer;
+    color: #fff;
+}
+
+.target {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #F9F8EE;
+    color: #BBAD9F;
+    font-size: 50px;
+    border-radius: inherit;
+    animation: .3s ease 1.2s;
+    animation-name: target-reduce_4x4;
+    animation-fill-mode: forwards;
+    transition: all .2s ease;
+}
+
+@keyframes target-reduce_3x3 {
+    100% {width: 150px}
+}
+@keyframes target-reduce_4x4 {
+    100% {
+        transform: translateX(150px);
+        width: 150px;
+}
+}
+
+
+.size_3x3-set {
+    width: 150px;
+    transform: translateX(150px);
+    animation-fill-mode: none;
+}
+.size_4x4-set {
+    width: 150px;
+    animation-fill-mode: none;
+}
+
 
 
 
@@ -254,6 +354,11 @@ body {
     z-index: 3;
 }
 
+.game-table_3x3 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
 
 .empty-cell {
     background-color: #CCC0B4;
@@ -267,6 +372,9 @@ body {
     font-size: 50px;
     font-weight: bold;
     color: #766E64;
+}
+.cell_3x3 {
+    font-size: 65px;
 }
 
 .cell-filling {
@@ -366,6 +474,13 @@ body {
 
 /* ADAPTIVE */
 @media (min-width: 2200px) {
+    .tip-shell {
+        padding: 25px 35px;
+    }
+    .tip, .final-score {
+        font-size: 45px;
+    }
+
     .end-game-text, .menu-window p {
         font-size: 110px;
     }
@@ -375,6 +490,37 @@ body {
     .text_menu {
         font-size: 140px;
     }
+
+
+    .game-table-size-change {
+        width: 480px;
+        height: 240px;
+        border-radius: 200px;
+    }
+    @keyframes target-reduce_3x3 {
+        100% {width: 240px}
+    }
+    @keyframes target-reduce_4x4 {
+        100% {
+            transform: translateX(240px);
+            width: 240px;
+        }
+    }
+    .size-cell {
+        font-size: 65px;
+    }
+    .target {
+        font-size: 70px;
+    }
+
+    .size_3x3-set {
+        width: 210px;
+        transform: translateX(240px);
+    }
+    .size_4x4-set {
+        width: 240px;
+    }
+
 
     .game-table-shell {
         width: 650px;
@@ -420,6 +566,9 @@ body {
     .cell {
         font-size: 70px;
     }
+    .cell_3x3 {
+        font-size: 90px;
+    }
 
 
     .num_128, .num_256 {
@@ -438,6 +587,11 @@ body {
 
 
 @media (max-width: 1250px) {
+    .tip, .final-score {
+        font-size: 26px;
+    }
+
+
     .end-game-text, .menu-window p {
         font-size: 70px;
     }
@@ -447,6 +601,29 @@ body {
     .text_menu {
         font-size: 80px;
     }
+
+
+    .game-table-size-change {
+        width: 280px;
+        height: 120px;
+    }
+    @keyframes target-reduce_3x3 {
+        100% {width: 140px}
+    }
+    @keyframes target-reduce_4x4 {
+        100% {
+            transform: translateX(140px);
+            width: 140px;
+        }
+    }
+    .size_3x3-set {
+        width: 140px;
+        transform: translateX(140px);
+    }
+    .size_4x4-set {
+        width: 140px;
+    }
+
 
     .game-table-shell {
         width: 450px;
@@ -478,7 +655,9 @@ body {
     .cell {
         font-size: 45px;
     }
-
+    .cell_3x3 {
+        font-size: 60px;
+    }
 
     .num_128, .num_256 {
         font-size: 40px;
@@ -496,6 +675,10 @@ body {
 
 
 @media (max-width: 1000px) {
+    .tip, .final-score {
+        font-size: 24px;
+    }
+
     .end-game-text, .menu-window p {
         font-size: 60px;
     }
@@ -506,6 +689,15 @@ body {
     .text_menu {
         font-size: 70px;
     }
+
+
+    .size-cell {
+        font-size: 40px;
+    }
+    .target {
+        font-size: 45px;
+    }
+
 
     .game-table-shell {
         width: 400px;
@@ -543,6 +735,9 @@ body {
     .cell {
         font-size: 40px;
     }
+    .cell_3x3 {
+        font-size: 55px;
+    }
 
     .num_128, .num_256 {
         font-size: 35px;
@@ -560,6 +755,10 @@ body {
 
 
 @media (max-width: 768px) {
+    .tip, .final-score {
+        font-size: 20px;
+    }
+
     .end-game-text, .menu-window p {
         font-size: 50px;
     }
@@ -570,6 +769,35 @@ body {
     .text_menu {
         font-size: 60px;
     }
+
+
+    .game-table-size-change {
+        width: 260px;
+        height: 100px;
+    }
+    .size-cell {
+        font-size: 35px;
+    }
+    .target {
+        font-size: 40px;
+    }
+    @keyframes target-reduce_3x3 {
+        100% {width: 130px}
+    }
+    @keyframes target-reduce_4x4 {
+        100% {
+            transform: translateX(130px);
+            width: 130px;
+        }
+    }
+    .size_3x3-set {
+        width: 130px;
+        transform: translateX(130px);
+    }
+    .size_4x4-set {
+        width: 130px;
+    }
+
 
     .game-table-shell {
         width: 350px;
@@ -609,6 +837,9 @@ body {
     .cell {
         font-size: 38px;
     }
+    .cell_3x3 {
+        font-size: 50px;
+    }
 
     .num_128, .num_256,.num_512 {
         font-size: 34px;
@@ -633,6 +864,35 @@ body {
     .text_menu {
         font-size: 50px;
     }
+
+
+    .game-table-size-change {
+        width: 240px;
+        height: 100px;
+    }
+    .size-cell {
+        font-size: 30px;
+    }
+    .target {
+        font-size: 35px;
+    }
+    @keyframes target-reduce_3x3 {
+        100% {width: 120px}
+    }
+    @keyframes target-reduce_4x4 {
+        100% {
+            transform: translateX(120px);
+            width: 120px;
+        }
+    }
+    .size_3x3-set {
+        width: 120px;
+        transform: translateX(120px);
+    }
+    .size_4x4-set {
+        width: 120px;
+    }
+
 
     .game-table-shell {
         width: 334px;
@@ -681,6 +941,9 @@ body {
     .cell {
         font-size: 35px;
     }
+    .cell_3x3 {
+        font-size: 45px;
+    }
 
     .num_128, .num_256,.num_512 {
         font-size: 30px;
@@ -695,9 +958,45 @@ body {
 
 
 @media (max-width: 360px) {
+    .tip-shell {
+        padding: 12px 22px;
+    }
+    .tip, .final-score {
+        font-size: 18px;
+    }
+
     .end-game-extra-text {
         margin-top: 6%;
     }
+
+
+    .game-table-size-change {
+        width: 220px;
+        height: 80px;
+    }
+    .size-cell {
+        font-size: 30px;
+    }
+    .target {
+        font-size: 35px;
+    }
+    @keyframes target-reduce_3x3 {
+        100% {width: 110px}
+    }
+    @keyframes target-reduce_4x4 {
+        100% {
+            transform: translateX(110px);
+            width: 110px;
+        }
+    }
+    .size_3x3-set {
+        width: 110px;
+        transform: translateX(110px);
+    }
+    .size_4x4-set {
+        width: 110px;
+    }
+
 
     .game-table-shell {
         width: 284px;
@@ -729,6 +1028,9 @@ body {
     }
     .cell {
         font-size: 30px;
+    }
+    .cell_3x3 {
+        font-size: 40px;
     }
 
     .num_128, .num_256,.num_512 {

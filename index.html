@@ -11,6 +11,13 @@
 </head>
 <body>
     <div class="main">
+        <div class="tip-shell">
+            <p class="tip">
+                reach 
+                <span class="final-score">2048</span>
+                in one cell to win
+            </p>
+        </div>
         <div class="game-table-shell">
             <div class="extra-area">
                 <div class="extra-area-block menu-button-shell">
@@ -35,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="game-table"></div> <!--important-->
+            <div class="game-table"></div>
 
         </div>
     </div>
@@ -43,15 +50,24 @@
     <div class="end-game-window">
         <div class="end-game-bg"></div>
         <h1 class="end-game-text game-result">Game Over</h1>
-        <p class="end-game-text">Score: <span class="end-game-text end-game-score">2345</span></p>
+        <p class="end-game-text">Score: 
+            <span class="end-game-text end-game-score">2345</span>
+        </p>
         <p class="end-game-extra-text">click to continue...</p>
         <div class="end-game-click-area"></div>
     </div>
 
     <div class="menu-window">
         <h1 class="text_menu">MENU</h1>
-        <p class="menu-continue">continue</p>
-        <p class="menu-restart">restart</p>
+        <div class="menu-options">
+            <p class="menu-continue">continue</p>
+            <p class="menu-restart">restart</p>
+        </div>
+        <div class="game-table-size-change">
+            <div class="size-cell size_3x3">3x3</div>
+            <div class="size-cell size_4x4">4x4</div>
+            <div class="target">4x4</div>
+        </div>
     </div>
 
 
