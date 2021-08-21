@@ -53,7 +53,7 @@ if (ls_currentRoundSave == null) {
     if (lineSize != 0) {
         if (lineSize === 3) {
             tableGenerationFunc(9);
-            victoryNum = 256;
+            victoryNum = 128;
             gameTable.classList.add('game-table_3x3');
             if (bestScore_3x3 != null && bestScore_3x3 != '') bestScoreBlock.innerHTML = bestScore_3x3;
             finalScore.innerHTML = victoryNum;
@@ -72,7 +72,7 @@ if (ls_currentRoundSave == null) {
 }
 else {
     if (lineSize === 3) {
-        victoryNum = 256;
+        victoryNum = 128;
         gameTable.classList.add('game-table_3x3');
         if (bestScore_3x3 != null && bestScore_3x3 != '') bestScoreBlock.innerHTML = bestScore_3x3;
     }
